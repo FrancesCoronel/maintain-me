@@ -1,8 +1,7 @@
 {
   "name": "maintain-me",
   "version": "0.0.2",
-  "description":
-    "Fulfill all of GitHub's community standards with one command.",
+  "description": "Fulfill all of GitHub's community standards with one command.",
   "license": "MIT",
   "repository": "fvcproductions/maintain-me",
   "author": {
@@ -19,7 +18,10 @@
   "scripts": {
     "test": "xo && ava"
   },
-  "files": ["cli.js", "vendor"],
+  "files": [
+    "cli.js",
+    "vendor"
+  ],
   "keywords": [
     "cli",
     "code",
