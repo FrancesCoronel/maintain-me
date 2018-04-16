@@ -18,7 +18,10 @@
   "scripts": {
     "test": "xo && ava"
   },
-  "files": ["cli.js", "vendor"],
+  "files": [
+    "cli.js",
+    "vendor"
+  ],
   "keywords": [
     "cli",
     "code",

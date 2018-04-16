@@ -1,8 +1,3 @@
-/**
- * @fileOverview Generate files
- * @author Frances Coronel
- */
-
 #!/usr/bin/env node
 
 'use strict';
@@ -112,7 +107,7 @@ function init() {
 		return;
 	}
 
-	const templateCodeOfConduct = '.github/CODE_OF_CONDUCT.md';
+	const templateCodeOfConduct = 'CODE_OF_CONDUCT.md';
 
 	if (config.has('email')) {
 		generate(templateCodeOfConduct, config.get('email'));
