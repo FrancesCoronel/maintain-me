@@ -2,16 +2,19 @@
 
 [![GitHub Issues](https://img.shields.io/github/issues/fvcproductions/maintain-me.svg?style=flat-square)](https://github.com/fvcproductions/maintain-me/issues) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/fvcproductions/maintain-me.svg?style=flat-square)](https://github.com/fvcproductions/maintain-me/pulls) [![MIT License](https://img.shields.io/github/license/fvcproductions/maintain-me.svg?style=flat-square)](http://badges.mit-license.org) [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](http://paypal.me/fvcproductions) [![Become a Patron!](https://img.shields.io/badge/Patreon-Become%20a%20Patron!-orange.svg?style=flat-square)](https://www.patreon.com/fvcproductions)
 
-Fulfill all of GitHub's community standards with one command.
-
 **Currently a WORK IN PROGRESS - do not expect this to work yet.**
 
+Fulfill all of GitHub's community standards with one command.
+
 ![Community Standards](https://i.imgur.com/JxRWP1g.png)
+
+You can find the **Community profile** for your GitHub repo at `github.com/username/repo/community`
+
+> You must be logged into GitHub to view this page for whichever repo.
 
 ## Installation
 
 ```bash
-# install module globally
 npm i -g maintain-me
 ```
 
@@ -41,9 +44,11 @@ This creates the following files:
 └── README.md
 ```
 
-You can also use this to update an existing Code of Conduct.
+When generating a new Code of Conduct it will try to infer your email to use as contact email.
 
-When generating a new Code of Conduct it will try to infer your email to use as contact email. If it can't, it will prompt for it. The email is persisted and only asked once. You can force update the email with `maintain-me --email=your@email.com`. When updating an existing Code of Conduct, it will use the existing contact email unless you pass the `--email` flag.
+If it can't, it will prompt for it. The email is persisted and only asked once.
+
+You can force update the email with `maintain-me --email=your@email.com`. When updating an existing Code of Conduct, it will use the existing contact email unless you pass the `--email` flag.
 
 ## Testing
 
@@ -54,7 +59,6 @@ npm run test
 ## Deployment
 
 ```bash
-npm publish
 np
 ```
 
