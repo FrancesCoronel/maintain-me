@@ -56,6 +56,21 @@ You can force update the email with `maintain-me --email=your@email.com`. When u
 npm run test
 ```
 
+### Running Module Locally
+
+[Symlinking](https://docs.npmjs.com/cli/link) a package folder is an easy way to test a node module locally.
+
+```bash
+# change into maintain-me directory
+cd maintain-me
+# create a global symlink to the local "maintain-me" project
+npm link
+# change directory to test-repo that went through npm init already
+cd test-repo
+# create a symlink locally to global maintain-me symlink
+npm link maintain-me
+```
+
 ## Deployment
 
 ```bash

@@ -55,7 +55,8 @@
     "globby": "^6.1.0",
     "inquirer": "^3.0.6",
     "log-symbols": "^2.2.0",
-    "meow": "^3.7.0"
+    "meow": "^3.7.0",
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
     "ava": "*",
