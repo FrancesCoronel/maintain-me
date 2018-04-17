@@ -6,11 +6,13 @@
 
 Fulfill all of GitHub's community standards with one command.
 
-![Community Standards](https://i.imgur.com/JxRWP1g.png)
+![maintain-me](https://i.imgur.com/twNgmU3.png)
 
-You can find the **Community profile** for your GitHub repo at `github.com/username/repo/community`
+You can find the **Community profile** for your GitHub repo at `github.com/username/repo/community`.
 
 > You must be logged into GitHub to view this page for whichever repo.
+
+![Community Standards](https://i.imgur.com/JxRWP1g.png)
 
 ## Installation
 
@@ -44,12 +46,6 @@ This creates the following files:
 └── README.md
 ```
 
-When generating a new Code of Conduct it will try to infer your email to use as contact email.
-
-If it can't, it will prompt for it. The email is persisted and only asked once.
-
-You can force update the email with `maintain-me --email=your@email.com`. When updating an existing Code of Conduct, it will use the existing contact email unless you pass the `--email` flag.
-
 ## Testing
 
 ```bash
@@ -65,8 +61,8 @@ npm run test
 cd maintain-me
 # create a global symlink to the local "maintain-me" project
 npm link
-# change directory to test-repo that went through npm init already
-cd test-repo
+# change directory to github-repo that has a package.json
+cd github-repo
 # create a symlink locally to global maintain-me symlink
 npm link maintain-me
 ```
