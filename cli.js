@@ -4,15 +4,12 @@
 const path = require('path');
 const fs = require('fs');
 const meow = require('meow');
-const inquirer = require('inquirer');
-const globby = require('globby');
-const getEmails = require('get-emails');
-const chalk = require('chalk');
 const Conf = require('conf');
-const execa = require('execa');
 const logSymbols = require('log-symbols');
-var mkdirp = require('mkdirp');
+const mkdirp = require('mkdirp');
+
 const config = new Conf();
+
 const cli = meow(`
 	Usage
 	  $ maintain-me
@@ -23,41 +20,6 @@ const cli = meow(`
  */
 if (cli.flags.email) {
 	config.set('email', cli.flags.email);
-}
-
-/**
- * Find Email
- */
-function findEmail() {
-	let email;
-	try {
-		email = execa.sync('git', ['config', 'user.email']).stdout.trim();
-	} catch (err) {}
-
-	return email;
-}
-
-/**
- * Generate code of conduct
- * @param {any} filepath
- * @param {any} email
- */
-function write(filepath, email) {
-	const src = fs.readFileSync(
-		path.join(__dirname, 'vendor/CODE_OF_CONDUCT.md'),
-		'utf8'
-	);
-	let emailAddressPattern = '[INSERT EMAIL ADDRESS]';
-	let emailAddressRegex = new RegExp(emailAddressPattern, 'g');
-	fs.writeFileSync(filepath, src.replace(emailAddressRegex, email));
-}
-
-function generate(filepath, email) {
-	write(filepath, email);
-	console.log(`${logSymbols.success} Added a Code of Conduct to your project!
-		\n\n${chalk.bold(
-			'Please carefully read this document and be ready to enforce it.'
-		)}\n\nIt can be found at ${filepath}.`);
 }
 
 /**
@@ -92,7 +54,7 @@ function generateCommunityStandards() {
 	console.log(`${logSymbols.info} Added CONTRIBUTING`);
 
 	// Create .github folder
-	mkdirp('.github', function(err) {
+	mkdirp('.github', err => {
 		if (err) {
 			console.error(err);
 		}
@@ -134,65 +96,4 @@ function generateCommunityStandards() {
 	);
 }
 
-function init() {
-	const results = globby.sync(
-		[
-			'code_of_conduct.*',
-			'code-of-conduct.*',
-			'.github/code_of_conduct.*',
-			'.github/code-of-conduct.*'
-		],
-		{
-			nocase: true
-		}
-	);
-
-	// Update existing
-	if (results.length > 0) {
-		const filepath = results[0];
-		const existingSrc = fs.readFileSync(filepath, 'utf8');
-		const email = Array.from(getEmails(existingSrc))[0];
-		write(filepath, cli.flags.email || email);
-		console.log(`${logSymbols.success} Updated your Code of Conduct file`);
-		return;
-	}
-
-	const templateCodeOfConduct = 'CODE_OF_CONDUCT.md';
-
-	if (config.has('email')) {
-		generate(templateCodeOfConduct, config.get('email'));
-		return;
-	}
-
-	const email = findEmail();
-	if (email) {
-		config.set('email', email);
-		generate(templateCodeOfConduct, email);
-		return;
-	}
-
-	if (process.stdout.isTTY) {
-		inquirer
-			.prompt([
-				{
-					type: 'input',
-					name: 'email',
-					message: `Couldn't infer your email. Please enter your email:`,
-					validate: x => x.includes('@')
-				}
-			])
-			.then(answers => {
-				generate(templateCodeOfConduct, answers.email);
-			});
-	} else {
-		console.error(
-			`Run \`${chalk.cyan(
-				'maintain-me --email=your@email.com'
-			)}\` once to save your email.`
-		);
-		process.exit(1);
-	}
-}
-
-// init();
 generateCommunityStandards();
