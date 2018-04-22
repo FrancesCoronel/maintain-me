@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 'use strict';
+
 const path = require('path');
 const fs = require('fs');
 const meow = require('meow');
@@ -9,84 +10,74 @@ const logSymbols = require('log-symbols');
 const mkdirp = require('mkdirp');
 
 const config = new Conf();
-
 const cli = meow(`
 	Usage
 	  $ maintain-me
 `);
 
 /**
- * If there is an email
+ * Sets email if already configured previously
  */
 if (cli.flags.email) {
 	config.set('email', cli.flags.email);
 }
 
 /**
- * TODO: Refactor
+ * Writes file to directory and logs addition to console
+ *
+ * @param {string} fileName
+ * @param {string} source
+ * @param {string} destination
  */
-function generateCommunityStandards() {
-	// README
-	const templateREADME = 'README.md';
-	const templateREADMESrc = fs.readFileSync(
-		path.join(__dirname, 'vendor/README.md'),
-		'utf8'
-	);
-	fs.writeFileSync(templateREADME, templateREADMESrc);
-	console.log(`${logSymbols.info} Added README`);
+const writeStandard = (fileName, source, destination) => {
+	const sourceFilePath = fs.readFileSync(path.join(__dirname, source), 'utf8');
+	fs.writeFileSync(destination, sourceFilePath);
+	console.log(`${logSymbols.info} Added ${fileName}`);
+};
 
-	// LICENSE
-	const templateLicense = 'LICENSE';
-	const templateLicenseSrc = fs.readFileSync(
-		path.join(__dirname, 'vendor/LICENSE'),
-		'utf8'
-	);
-	fs.writeFileSync(templateLicense, templateLicenseSrc);
-	console.log(`${logSymbols.info} Added LICENSE`);
-
-	// CONTRIBUTING
-	const templateContributing = 'CONTRIBUTING.md';
-	const templateContributingSrc = fs.readFileSync(
-		path.join(__dirname, 'vendor/CONTRIBUTING.md'),
-		'utf8'
-	);
-	fs.writeFileSync(templateContributing, templateContributingSrc);
-	console.log(`${logSymbols.info} Added CONTRIBUTING`);
-
-	// Create .github folder
-	mkdirp('.github', err => {
+/**
+ * Creates a directory and logs error if any
+ *
+ * @param {string} directoryName
+ */
+const createDirectory = directoryName => {
+	mkdirp(directoryName, err => {
 		if (err) {
 			console.error(err);
 		}
 	});
+};
 
+/**
+ * Writes 6 pre-defined templates to fulfill GitHub's community standards
+ */
+function generateCommunityStandards() {
+	// README
+	writeStandard('README', 'vendor/README.md', 'README.md');
+	// LICENSE
+	writeStandard('LICENSE', 'vendor/LICENSE', 'LICENSE');
+	// CONTRIBUTING
+	writeStandard('CONTRIBUTING', 'vendor/CONTRIBUTING.md', 'CONTRIBUTING.md');
+	// Create .github folder
+	createDirectory('.github');
 	// CODE OF CONDUCT
-	const templateCodeOfConduct = '.github/CODE_OF_CONDUCT.md';
-	const templateCodeOfConductSrc = fs.readFileSync(
-		path.join(__dirname, 'vendor/CODE_OF_CONDUCT.md'),
-		'utf8'
+	writeStandard(
+		'CODE_OF_CONDUCT',
+		'vendor/CODE_OF_CONDUCT.md',
+		'.github/CODE_OF_CONDUCT.md'
 	);
-	fs.writeFileSync(templateCodeOfConduct, templateCodeOfConductSrc);
-	console.log(`${logSymbols.info} Added CODE_OF_CONDUCT`);
-
 	// ISSUE TEMPLATE
-	const templateIssue = '.github/ISSUE_TEMPLATE.md';
-	const templateIssueSrc = fs.readFileSync(
-		path.join(__dirname, 'vendor/ISSUE_TEMPLATE.md'),
-		'utf8'
+	writeStandard(
+		'ISSUE_TEMPLATE',
+		'vendor/ISSUE_TEMPLATE.md',
+		'.github/ISSUE_TEMPLATE.md'
 	);
-	fs.writeFileSync(templateIssue, templateIssueSrc);
-	console.log(`${logSymbols.info} Added ISSUE_TEMPLATE`);
-
 	// PULL REQUEST TEMPLATE
-	const templatePullRequest = '.github/PULL_REQUEST_TEMPLATE.md';
-	const templatePullRequestSrc = fs.readFileSync(
-		path.join(__dirname, 'vendor/PULL_REQUEST_TEMPLATE.md'),
-		'utf8'
+	writeStandard(
+		'PULL_REQUEST_TEMPLATE',
+		'vendor/PULL_REQUEST_TEMPLATE.md',
+		'.github/PULL_REQUEST_TEMPLATE.md'
 	);
-	fs.writeFileSync(templatePullRequest, templatePullRequestSrc);
-	console.log(`${logSymbols.info} Added PULL_REQUEST_TEMPLATE`);
-
 	// Congrats
 	console.log(
 		`\n${
