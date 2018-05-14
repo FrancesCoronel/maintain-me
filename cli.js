@@ -52,30 +52,44 @@ const createDirectory = directoryName => {
  * Writes 6 pre-defined templates to fulfill GitHub's community standards
  */
 function generateCommunityStandards() {
+	// Create .github folder
+	createDirectory('.github');
+	// Create ISSUE_TEMPLATE folder
+	createDirectory('.github/ISSUE_TEMPLATE');
 	// README
 	writeStandard('README', 'vendor/README.md', 'README.md');
 	// LICENSE
 	writeStandard('LICENSE', 'vendor/LICENSE', 'LICENSE');
 	// CONTRIBUTING
-	writeStandard('CONTRIBUTING', 'vendor/CONTRIBUTING.md', 'CONTRIBUTING.md');
-	// Create .github folder
-	createDirectory('.github');
+	writeStandard('CONTRIBUTING', 'vendor/.github/CONTRIBUTING.md', '.github/CONTRIBUTING.md');
 	// CODE OF CONDUCT
 	writeStandard(
 		'CODE_OF_CONDUCT',
-		'vendor/CODE_OF_CONDUCT.md',
+		'vendor/.github/CODE_OF_CONDUCT.md',
 		'.github/CODE_OF_CONDUCT.md'
 	);
-	// ISSUE TEMPLATE
+	// DEFAULT ISSUE TEMPLATE
 	writeStandard(
-		'ISSUE_TEMPLATE',
-		'vendor/ISSUE_TEMPLATE.md',
+		'ISSUE_TEMPLATE (Default)',
+		'vendor/.github/ISSUE_TEMPLATE.md',
 		'.github/ISSUE_TEMPLATE.md'
+	);
+	// BUG REPORT ISSUE TEMPLATE
+	writeStandard(
+		'ISSUE_TEMPLATE (Bug report)',
+		'vendor/.github/ISSUE_TEMPLATE/Bug_report.md',
+		'.github/ISSUE_TEMPLATE/Bug_report.md'
+	);
+	// FEATURE REQUEST ISSUE TEMPLATE
+	writeStandard(
+		'ISSUE_TEMPLATE (Feature request)',
+		'vendor/.github/ISSUE_TEMPLATE/Feature_request.md',
+		'.github/ISSUE_TEMPLATE/Feature_request.md'
 	);
 	// PULL REQUEST TEMPLATE
 	writeStandard(
 		'PULL_REQUEST_TEMPLATE',
-		'vendor/PULL_REQUEST_TEMPLATE.md',
+		'vendor/.github/PULL_REQUEST_TEMPLATE.md',
 		'.github/PULL_REQUEST_TEMPLATE.md'
 	);
 	// Congrats

@@ -30,23 +30,21 @@ maintain-me
 
 This creates the following files:
 
-* `README.md`
-* `CONTRIBUTING.md`
-* `LICENSE`
-* `CODE_OF_CONDUCT.md`
-* `ISSUE_TEMPLATE.md`
-* `PULL_REQUEST_TEMPLATE.md`
-
 ```text
 .
 ├── .github
-│   ├── CODE_OF_CONDUCT.md
-│   ├── ISSUE_TEMPLATE.md
-│   └── PULL_REQUEST_TEMPLATE.md
-├── CONTRIBUTING.md
+|  ├── CODE_OF_CONDUCT.md
+|  ├── CONTRIBUTING.md
+|  ├── ISSUE_TEMPLATE
+|  |  ├── Bug_report.md
+|  |  └── Feature_request.md
+|  ├── ISSUE_TEMPLATE.md
+|  └── PULL_REQUEST_TEMPLATE.md
 ├── LICENSE
 └── README.md
 ```
+
+Use `npm i -g tree-cli` and `tree -l 4 -a --ignore 'node_modules, .git, fixtures'` to create the graph above.
 
 ## Testing
 
@@ -80,7 +78,7 @@ np
 > To get started...
 
 1.  🍴 [Fork this repo](https://github.com/fvcproductions/maintain-me#fork-destination-box)
-2.  🔨 View the contributing guidelines at [CONTRIBUTING.md](CONTRIBUTING.md)
+2.  🔨 View the contributing guidelines at [CONTRIBUTING.md](.github/CONTRIBUTING.md)
 3.  👥 Add yourself as a contributor under the credits section
 4.  🔧 [Open a new pull request](https://github.com/fvcproductions/maintain-me/compare)
 5.  🎉 Get your pull request approved - success!

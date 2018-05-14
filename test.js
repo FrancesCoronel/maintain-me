@@ -11,6 +11,6 @@ test('generateCommunityStandards', async t => {
 	await execa(bin, {
 		cwd
 	});
-	const src = fs.readFileSync(path.join(cwd, 'CONTRIBUTING.md'), 'utf8');
+	const src = fs.readFileSync(path.join(cwd, '.github/CONTRIBUTING.md'), 'utf8');
 	t.true(src.includes('To get started'));
 });
