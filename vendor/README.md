@@ -1,6 +1,6 @@
 # [INSERT NAME OF REPO]
 
-[![GitHub Issues](https://img.shields.io/github/issues/fvcproductions/maintain-me.svg?style=flat-square)](https://github.com/fvcproductions/maintain-me/issues) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/fvcproductions/maintain-me.svg?style=flat-square)](https://github.com/fvcproductions/maintain-me/pulls) [![MIT License](https://img.shields.io/github/license/fvcproductions/maintain-me.svg?style=flat-square)](http://badges.mit-license.org) [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](http://paypal.me/fvcproductions) [![Become a Patron!](https://img.shields.io/badge/Patreon-Become%20a%20Patron!-orange.svg?style=flat-square)](https://www.patreon.com/fvcproductions)
+[![GitHub Issues](https://img.shields.io/github/issues/fvcproductions/maintain-me.svg?style=flat-square)](https://github.com/FrancesCoronel/maintain-me/issues) [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/fvcproductions/maintain-me.svg?style=flat-square)](https://github.com/FrancesCoronel/maintain-me/pulls) [![MIT License](https://img.shields.io/github/license/fvcproductions/maintain-me.svg?style=flat-square)](http://badges.mit-license.org) [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg?style=flat-square)](http://paypal.me/fvcproductions) [![Become a Patron!](https://img.shields.io/badge/Patreon-Become%20a%20Patron!-orange.svg?style=flat-square)](https://www.patreon.com/fvcproductions)
 
 Insert a quick description of your project here.
 
@@ -36,13 +36,13 @@ yarn deploy
 
 > To get started...
 
-1.  🍴 [Fork this repo](https://github.com/fvcproductions/maintain-me#fork-destination-box)
+1.  🍴 [Fork this repo](https://github.com/FrancesCoronel/maintain-me#fork-destination-box)
 2.  🔨 View the contributing guidelines at [CONTRIBUTING.md](.github/CONTRIBUTING.md)
 3.  👥 Add yourself as a contributor under the credits section
-4.  🔧 [Open a new pull request](https://github.com/fvcproductions/maintain-me/compare)
+4.  🔧 [Open a new pull request](https://github.com/FrancesCoronel/maintain-me/compare)
 5.  🎉 Get your pull request approved - success!
 
-Or just [create an issue](https://github.com/fvcproductions/maintain-me/issues) - any little bit of help counts! 😊
+Or just [create an issue](https://github.com/FrancesCoronel/maintain-me/issues) - any little bit of help counts! 😊
 
 ## Code of Conduct
 
@@ -52,4 +52,4 @@ More details can be found at this project's [code of conduct](.github/CODE_OF_CO
 
 ## Credits
 
-* [FVCproductions](https://github.com/fvcproductions) 🍓🍫
+* [FVCproductions](https://github.com/FrancesCoronel) 🍓🍫

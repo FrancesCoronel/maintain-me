@@ -8,5 +8,5 @@ Insert description of issue here
 
 > ✅️ By submitting this issue, I have verified the following
 
-* [] Checked to [see if this issue has already been discussed before](https://github.com/fvcproductions/maintain-me/issues) 🤔️
+* [] Checked to [see if this issue has already been discussed before](https://github.com/FrancesCoronel/maintain-me/issues) 🤔️
 * [] If proposing new content to be added, made sure enough details were provided 🔍️
